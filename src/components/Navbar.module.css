@@ -1,0 +1,284 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(55, 65, 81, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+  padding: 1rem 0;
+  transition: all 0.3s ease;
+}
+
+.navbar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 255, 136, 0.05) 0%, rgba(55, 65, 81, 0.95) 100%);
+  pointer-events: none;
+}
+
+.navContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Logo Styles */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logoCircle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+}
+
+.logoCircle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+}
+
+.logoCircle::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #00ff88, transparent, #00ff88);
+  z-index: -1;
+  animation: rotate 3s linear infinite;
+}
+
+.logoText {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a202c;
+  font-family: "Arial", sans-serif;
+}
+
+/* Navigation Menu */
+.navMenu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+.navItem {
+  position: relative;
+}
+
+.navLink {
+  color: #a0aec0;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  position: relative;
+  transition: all 0.3s ease;
+  display: block;
+  overflow: hidden;
+}
+
+.navLink::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.navLink:hover::before {
+  left: 100%;
+}
+
+.navLink:hover {
+  color: #00ff88;
+  transform: translateY(-2px);
+}
+
+.navLink.active {
+  color: #00ff88;
+  background: rgba(0, 255, 136, 0.1);
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
+}
+
+.navLinkGlow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 25px;
+  background: linear-gradient(45deg, rgba(0, 255, 136, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.navLink:hover .navLinkGlow {
+  opacity: 1;
+}
+
+/* Mobile Menu Button */
+.mobileMenuBtn {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+}
+
+.mobileMenuBtn span {
+  width: 25px;
+  height: 3px;
+  background: #00ff88;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Background Elements */
+.bgElements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bgElement1,
+.bgElement2,
+.bgElement3 {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 255, 136, 0.1) 0%, transparent 70%);
+}
+
+.bgElement1 {
+  width: 100px;
+  height: 100px;
+  top: -50px;
+  left: 10%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.bgElement2 {
+  width: 150px;
+  height: 150px;
+  top: -75px;
+  right: 20%;
+  animation: float 8s ease-in-out infinite reverse;
+}
+
+.bgElement3 {
+  width: 80px;
+  height: 80px;
+  top: -40px;
+  left: 50%;
+  animation: float 7s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navContainer {
+    padding: 0 1rem;
+  }
+
+  .navMenu {
+    display: none;
+  }
+
+  .mobileMenuBtn {
+    display: flex;
+  }
+
+  .logoCircle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logoText {
+    font-size: 1.2rem;
+  }
+}
+
+/* Hover effects for the entire navbar */
+.navbar:hover {
+  background: rgba(55, 65, 81, 0.98);
+  border-bottom-color: rgba(0, 255, 136, 0.2);
+}
+
+/* Glassmorphism enhancement */
+.navbar {
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Additional futuristic glow effects */
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00ff88, transparent);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.navLink:hover::after,
+.navLink.active::after {
+  width: 100%;
+}

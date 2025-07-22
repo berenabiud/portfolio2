@@ -1,0 +1,60 @@
+"use client"
+
+import { useState } from "react"
+import styles from "../Navbar.module.css"
+
+const Navbar = () => {
+  const [activeItem, setActiveItem] = useState("HOME")
+
+  const navItems = [
+    { name: "HOME", href: "#home" },
+    { name: "EXPERIENCE", href: "#experience" },
+    { name: "PORTFOLIO", href: "#portfolio" },
+    { name: "CONTACT", href: "#contact" },
+  ]
+
+  return (
+    <nav className={styles.navbar}>
+      <div className={styles.navContainer}>
+        {/* Logo */}
+        <div className={styles.logo}>
+          <div className={styles.logoCircle}>
+            <span className={styles.logoText}>R</span>
+          </div>
+        </div>
+
+        {/* Navigation Items */}
+        <ul className={styles.navMenu}>
+          {navItems.map((item) => (
+            <li key={item.name} className={styles.navItem}>
+              <a
+                href={item.href}
+                className={`${styles.navLink} ${activeItem === item.name ? styles.active : ""}`}
+                onClick={() => setActiveItem(item.name)}
+              >
+                {item.name}
+                <span className={styles.navLinkGlow}></span>
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        {/* Mobile Menu Button */}
+        <div className={styles.mobileMenuBtn}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      {/* Animated Background Elements */}
+      <div className={styles.bgElements}>
+        <div className={styles.bgElement1}></div>
+        <div className={styles.bgElement2}></div>
+        <div className={styles.bgElement3}></div>
+      </div>
+    </nav>
+  )
+}
+
+export default Navbar
