@@ -19,7 +19,7 @@ const Navbar = () => {
         {/* Logo */}
         <div className={styles.logo}>
           <div className={styles.logoCircle}>
-            <span className={styles.logoText}>R</span>
+            <span className={styles.logoText}>BR</span>
           </div>
         </div>
 
