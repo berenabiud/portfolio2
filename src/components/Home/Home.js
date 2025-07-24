@@ -71,7 +71,7 @@ const Home = () => {
               <div className={styles.imageFrame}>
                 <img
                   src="/placeholder.svg?height=400&width=400"
-                  alt="Robert Caro - UI/UX Designer"
+                  alt=""
                   className={styles.profileImage}
                 />
                 <div className={styles.imageOverlay}></div>
