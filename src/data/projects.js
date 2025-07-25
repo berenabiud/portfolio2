@@ -1,3 +1,4 @@
+import project2Image from '../assets/project2.png';
 export const projects = [
 //   {
 //     id: 1,
@@ -17,7 +18,7 @@ export const projects = [
     - View the clinic's gallery showcasing services and facilities
     - Access location details and directions via integrated maps
     - Explore clinic information, services, and contact options`,
-    imageUrl: "/wisdom-dental-preview.jpg", // Make sure this image exists in your public folder
+     imageUrl: project2Image,
     link: "/projects/wisdom-dental", // Optional: You could still have an internal case study page
     externalLink: "https://wisdom-eta.vercel.app/", // The live demo URL
     tags: ["React", "Flask", "UI/UX", "Full-stack"],
@@ -41,3 +42,5 @@ export const projects = [
 //   }
   // Add more projects as needed
 ];
+
+export default projects

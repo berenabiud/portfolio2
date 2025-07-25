@@ -56,7 +56,7 @@ const Home = () => {
               <a href="#" className={styles.socialLink}>
                 <span>LinkedIn</span>
               </a>
-              <a href="#" className={styles.socialLink}>
+              <a href="https://github.com/berenabiud" className={styles.socialLink}>
                 <span>GitHub</span>
               </a>
               <a href="#" className={styles.socialLink}>
