@@ -7,11 +7,11 @@ const Navbar = () => {
   const [activeItem, setActiveItem] = useState("HOME")
 
   const navItems = [
-    { name: "HOME", href: "#home" },
-    { name: "EXPERIENCE", href: "#experience" },
-    { name: "PORTFOLIO", href: "#portfolio" },
-    { name: "CONTACT", href: "#contact" },
-  ]
+  { name: "HOME", href: "/" },
+  { name: "EXPERIENCE", href: "/experience" },
+  { name: "PORTFOLIO", href: "/portfolio" },
+  { name: "CONTACT", href: "/contact" },
+]
 
   return (
     <nav className={styles.navbar}>

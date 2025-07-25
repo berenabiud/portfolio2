@@ -1,12 +1,13 @@
 .portfolio-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #374452 0%, #4a5568 50%, #2d3748 100%);
+  background: linear-gradient(135deg, #2c3444 0%, #333b50 50%, #3a4358 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 3rem 1rem;
 }
+
 
 .header-section {
   text-align: center;
