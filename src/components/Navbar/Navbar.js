@@ -1,17 +1,22 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import styles from "../Navbar.module.css"
+import { useState } from "react";
+import styles from "../Navbar.module.css";
 
 const Navbar = () => {
-  const [activeItem, setActiveItem] = useState("HOME")
+  const [activeItem, setActiveItem] = useState("HOME");
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // ✅ Add menu state
 
   const navItems = [
-  { name: "HOME", href: "/" },
-  { name: "EXPERIENCE", href: "/experience" },
-  { name: "PORTFOLIO", href: "/portfolio" },
-  { name: "CONTACT", href: "/contact" },
-]
+    { name: "HOME", href: "/" },
+    { name: "EXPERIENCE", href: "/experience" },
+    { name: "PORTFOLIO", href: "/portfolio" },
+    { name: "CONTACT", href: "/contact" },
+  ];
+
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
+  };
 
   return (
     <nav className={styles.navbar}>
@@ -24,13 +29,22 @@ const Navbar = () => {
         </div>
 
         {/* Navigation Items */}
-        <ul className={styles.navMenu}>
+        <ul
+          className={`${styles.navMenu} ${
+            isMenuOpen ? styles.showMenu : ""
+          }`} // ✅ Add conditional class
+        >
           {navItems.map((item) => (
             <li key={item.name} className={styles.navItem}>
               <a
                 href={item.href}
-                className={`${styles.navLink} ${activeItem === item.name ? styles.active : ""}`}
-                onClick={() => setActiveItem(item.name)}
+                className={`${styles.navLink} ${
+                  activeItem === item.name ? styles.active : ""
+                }`}
+                onClick={() => {
+                  setActiveItem(item.name);
+                  setIsMenuOpen(false); // ✅ Close menu on click
+                }}
               >
                 {item.name}
                 <span className={styles.navLinkGlow}></span>
@@ -40,7 +54,7 @@ const Navbar = () => {
         </ul>
 
         {/* Mobile Menu Button */}
-        <div className={styles.mobileMenuBtn}>
+        <div className={styles.mobileMenuBtn} onClick={toggleMenu}>
           <span></span>
           <span></span>
           <span></span>
@@ -54,7 +68,7 @@ const Navbar = () => {
         <div className={styles.bgElement3}></div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
