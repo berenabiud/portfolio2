@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { Link } from "react-router-dom"; // ✅ Import Link
 import styles from "../Navbar.module.css";
 
 const Navbar = () => {
   const [activeItem, setActiveItem] = useState("HOME");
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // ✅ Add menu state
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
     { name: "HOME", href: "/" },
@@ -31,23 +32,23 @@ const Navbar = () => {
         <ul
           className={`${styles.navMenu} ${
             isMenuOpen ? styles.showMenu : ""
-          }`} // ✅ Add conditional class
+          }`}
         >
           {navItems.map((item) => (
             <li key={item.name} className={styles.navItem}>
-              <a
-                href={item.href}
+              <Link
+                to={item.href} // ✅ Use "to" instead of "href"
                 className={`${styles.navLink} ${
                   activeItem === item.name ? styles.active : ""
                 }`}
                 onClick={() => {
                   setActiveItem(item.name);
-                  setIsMenuOpen(false); // ✅ Close menu on click
+                  setIsMenuOpen(false);
                 }}
               >
                 {item.name}
                 <span className={styles.navLinkGlow}></span>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
