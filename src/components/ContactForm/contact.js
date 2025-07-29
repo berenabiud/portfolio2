@@ -36,12 +36,13 @@ export default function ContactForm() {
         <div className={styles["contact-info"]}>
           <h1 className={styles["contact-title"]}>CONTACT</h1>
           <p className={styles["contact-description"]}>
-            I'm a paragraph. Click here to add your own text and edit me. I'm a great place for you to tell a story and
-            let your users know a little more about you.
+            I'm a passionate young developer with a love for building clean, functional, and user-friendly applications. I'm always excited to take on new challenges and collaborate on innovative projects. Whether you have a question, an opportunity, or just want to say hi, feel free to reach out!
+
+I’m currently open to freelance projects, internships, or junior developer roles. I’m particularly interested in working on projects involving web development, AI, or mobile apps. If you have an idea or a project you'd like to discuss, I'd love to hear about it!
           </p>
           <div className={styles["contact-details"]}>
-            <p>info@mysite.com</p>
-            <p>Tel: 1-800-000-0000</p>
+            <p>berenabiud4@gmail.com</p>
+            <p>Tel: 0740756391</p>
           </div>
         </div>
         <div className={styles["contact-form"]}>
